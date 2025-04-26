@@ -1,15 +1,5 @@
-
-import { Sidebar, SidebarContent, SidebarHeader } from "@/components/ui/sidebar"
-import { Button } from "@/components/ui/button"
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
-import { Info } from "lucide-react"
+import { useState } from "react";
+import { Card } from "@/components/ui/card";
 
 const sarcasmTypes = [
   {
@@ -43,31 +33,27 @@ const sarcasmTypes = [
 ];
 
 export const SarcasmTypes = () => {
+  const [selectedType, setSelectedType] = useState<string | null>(null);
+
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-10">
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="bg-[rgb(0,173,181)] hover:bg-[rgb(0,153,161)] text-white">
-            <Info className="h-5 w-5" />
-          </Button>
-        </SheetTrigger>
-        <SheetContent className="w-[400px] bg-[rgb(34,40,49)] text-[rgb(238,238,238)] border-l border-[rgb(57,62,70)]">
-          <SheetHeader>
-            <SheetTitle className="text-[rgb(238,238,238)]">Types of Sarcasm</SheetTitle>
-            <SheetDescription className="text-[rgb(120,122,145)]">
-              Click on each type to learn more about different forms of sarcasm.
-            </SheetDescription>
-          </SheetHeader>
-          <div className="mt-6 space-y-4">
-            {sarcasmTypes.map((item) => (
-              <div key={item.type} className="space-y-2">
-                <h3 className="font-semibold text-[rgb(0,173,181)]">{item.type}</h3>
-                <p className="text-sm text-[rgb(238,238,238)]/80">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </SheetContent>
-      </Sheet>
+    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-10 w-[300px]">
+      <Card className="bg-[rgb(57,62,70)] border-[rgb(0,173,181)] p-4 space-y-4">
+        <h2 className="text-xl font-bold text-[rgb(0,173,181)]">Types of Sarcasm</h2>
+        <div className="space-y-2">
+          {sarcasmTypes.map((item) => (
+            <div key={item.type} className="cursor-pointer" onClick={() => setSelectedType(item.type)}>
+              <h3 className="text-[rgb(238,238,238)] hover:text-[rgb(0,173,181)] transition-colors">
+                {item.type}
+              </h3>
+              {selectedType === item.type && (
+                <p className="text-sm text-[rgb(238,238,238)]/70 mt-1 pl-2 border-l-2 border-[rgb(0,173,181)]">
+                  {item.description}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </Card>
     </div>
   );
 };
