@@ -1,13 +1,21 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { AuthWrapper } from "@/components/AuthWrapper";
+import { TweetAnalyzer } from "@/components/TweetAnalyzer";
+import { UserButton } from "@clerk/clerk-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <AuthWrapper>
+      <div className="min-h-screen p-6">
+        <header className="flex justify-between items-center max-w-2xl mx-auto mb-12">
+          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-light to-accent">
+            Sarcasm Whisperer
+          </h1>
+          <UserButton />
+        </header>
+        <TweetAnalyzer />
       </div>
-    </div>
+    </AuthWrapper>
   );
 };
 
