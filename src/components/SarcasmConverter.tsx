@@ -25,9 +25,9 @@ export const SarcasmConverter = ({ analyzedTweet }: Props) => {
   return (
     <Card className={cn(
       "p-6 space-y-4",
-      "bg-[rgb(57,62,70)] border-[rgb(0,173,181)] text-[rgb(238,238,238)]"
+      "bg-background/50 border-primary text-text"
     )}>
-      <h3 className="text-xl font-semibold text-[rgb(0,173,181)]">
+      <h3 className="text-xl font-semibold text-secondary">
         Convert to Sarcasm
       </h3>
       <div className="space-y-4">
@@ -35,18 +35,18 @@ export const SarcasmConverter = ({ analyzedTweet }: Props) => {
           placeholder="Enter text to convert to sarcasm..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="bg-[rgb(57,62,70)] border-[rgb(0,173,181)] text-[rgb(238,238,238)] placeholder:text-[rgb(238,238,238)]/50"
+          className="bg-background/50 border-primary text-text placeholder:text-text/50"
         />
         <Button
           onClick={convertToSarcasm}
-          className="w-full bg-[rgb(0,173,181)] hover:bg-[rgb(0,153,161)] text-[rgb(238,238,238)]"
+          className="w-full bg-primary hover:bg-primary/80 text-background"
         >
           Convert to Sarcasm
         </Button>
       </div>
       {output && (
-        <div className="pt-4 border-t border-[rgb(0,173,181)]/30">
-          <p className="text-[rgb(238,238,238)]">{output}</p>
+        <div className="pt-4 border-t border-primary/30">
+          <p className="text-text">{output}</p>
         </div>
       )}
     </Card>

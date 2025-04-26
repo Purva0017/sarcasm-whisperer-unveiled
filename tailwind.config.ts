@@ -13,19 +13,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "rgb(15, 4, 76)",
-        secondary: "rgb(20, 30, 97)",
-        accent: "rgb(120, 122, 145)",
-        light: "rgb(238, 238, 238)",
-        border: "rgb(120, 122, 145)",
-        input: "rgb(238, 238, 238)",
-        background: "rgb(15, 4, 76)",
+        background: "rgb(18, 18, 18)",
+        primary: "rgb(255, 20, 147)",
+        secondary: "rgb(0, 191, 255)",
+        text: "rgb(230, 230, 230)",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-      },
-      backgroundImage: {
-        "gradient-primary": "linear-gradient(to right, rgb(15, 4, 76), rgb(20, 30, 97))",
       },
     },
   },

@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface SarcasmTypeItemProps {
   type: string;
@@ -11,14 +12,21 @@ export const SarcasmTypeItem = ({ type, description }: SarcasmTypeItemProps) => 
 
   return (
     <div
-      className="cursor-pointer"
+      className="cursor-pointer rounded-lg bg-background/50 p-4 hover:bg-background/80 transition-all duration-200"
       onClick={() => setIsSelected(!isSelected)}
     >
-      <h3 className="text-[rgb(238,238,238)] hover:text-[rgb(0,173,181)] transition-colors">
-        {type}
-      </h3>
+      <div className="flex items-center justify-between">
+        <h3 className="text-primary hover:text-secondary transition-colors">
+          {type}
+        </h3>
+        {isSelected ? (
+          <ChevronUp className="text-secondary w-4 h-4" />
+        ) : (
+          <ChevronDown className="text-primary w-4 h-4" />
+        )}
+      </div>
       {isSelected && (
-        <p className="text-sm text-[rgb(238,238,238)]/70 mt-1 pl-2 border-l-2 border-[rgb(0,173,181)]">
+        <p className="text-sm text-text/70 mt-3 pl-3 border-l-2 border-secondary animate-in fade-in slide-in-from-top-1 duration-200">
           {description}
         </p>
       )}
