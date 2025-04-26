@@ -30,11 +30,11 @@ export const TweetAnalyzer = () => {
           placeholder="Enter your tweet for analysis..."
           value={tweet}
           onChange={(e) => setTweet(e.target.value)}
-          className="bg-white/10 border-white/20 text-light placeholder:text-accent"
+          className="bg-[rgb(57,62,70)] border-[rgb(0,173,181)] text-[rgb(238,238,238)] placeholder:text-[rgb(238,238,238)]/50"
         />
         <Button
           onClick={analyzeTweet}
-          className="w-full bg-secondary hover:bg-secondary/90 text-light"
+          className="w-full bg-[rgb(0,173,181)] hover:bg-[rgb(0,153,161)] text-[rgb(238,238,238)]"
         >
           Analyze Sarcasm
         </Button>
@@ -42,8 +42,8 @@ export const TweetAnalyzer = () => {
 
       {result && (
         <Card className={cn(
-          "p-6 space-y-4 backdrop-blur-lg",
-          "bg-white/10 border-white/20"
+          "p-6 space-y-4",
+          "bg-[rgb(57,62,70)] border-[rgb(0,173,181)] text-[rgb(238,238,238)]"
         )}>
           <div className="flex justify-between items-center">
             <h3 className="text-xl font-semibold">
@@ -59,7 +59,7 @@ export const TweetAnalyzer = () => {
               {result.highlights.map((word) => (
                 <span
                   key={word}
-                  className="px-2 py-1 rounded-full bg-secondary/50 text-xs"
+                  className="px-2 py-1 rounded-full bg-[rgb(0,173,181)]/20 text-xs"
                 >
                   {word}
                 </span>
